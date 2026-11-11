@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Наш Первый Год 🖤</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;700&display=swap');
+
+        :root {
+            --bg-color: #0a0a0a; /* Почти черный, как в примере */
+            --text-color: #fdfbff; /* Белый */
+            --accent-color: #e0a6ff; /* Светло-фиолетовый */
+            --card-bg: rgba(255, 255, 255, 0.03); /* Очень прозрачный белый для блоков */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Общие контейнеры */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* Заголовки в стиле Constellations */
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        /* Хедер (Главная заставка) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(54, 16, 77, 0.2) 0%, rgba(10, 10, 10, 1) 70%);
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 1;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .hero .date {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-family: var(--font-body);
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .hero-decor {
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: url('static/hero_decor.png') no-repeat center; /* Сюда можно добавить какое-то абстрактное фото или графику, как в примере */
+            background-size: contain;
+            opacity: 0.3;
+            filter: grayscale(1) sepia(1) hue-rotate(270deg); /* Придаем фиолетовый оттенок */
+        }
+
+        /* Секция структуры (Письмо) */
+        .structure {
+            background-color: #0f0f0f;
+        }
+
+        .structure h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .letter-content {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .letter-content p {
+            margin-bottom: 30px;
+        }
+
+        /* Секция воспоминаний (Галерея в стиле блоков) */
+        .memories h2 {
+            font-size: 2.5rem;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .memory-item {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .memory-item:hover {
+            border-color: rgba(224, 166, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .memory-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover; /* Чтобы фото не искажалось */
+            margin-bottom: 20px;
+            filter: grayscale(0.5); /* Немного приглушим цвета для стиля */
+            transition: 0.3s;
+        }
+
+        .memory-item:hover img {
+            filter: grayscale(0);
+        }
+
+        .memory-item h3 {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .memory-item p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+        }
+
+        /* Футер */
+        footer {
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer p {
+            font-family: var(--font-heading);
+            font-style: italic;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+        
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .memory-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Главная заставка -->
+    <header class="hero">
+        <div class="container">
+            <div class="date">365 дней • Наша история</div>
+            <h1>ЦЕЛЫЙ<br>ГОД</h1>
+            <div class="date">С тобой.</div>
+        </div>
+        <!-- Декоративный элемент, как силуэт в примере -->
+        <div class="hero-decor"></div>
+    </header>
+
+    <!-- Секция с письмом (Аналог Structure) -->
+    <section class="structure">
+        <div class="container">
+            <h2>ГЛАВА: ИТОГИ</h2>
+            <div class="letter-content">
+                <p>Любимый мой Егор! Я поверить не могу, что пишу эти строки. Ровно год назад мы начали этот путь. Триста шестьдесят пять дней. Казалось бы, просто цифра, но сколько всего за ней стоит...</p>
+                <p>Ты знаешь, как мне бывает непросто в интернате, но каждая твоя смс, каждый созвон, каждая твоя улыбка на экране — это то, что давало мне силы. Этот год научил меня ценить каждую минуту нашего общения и верить в то, что расстояние — это временное испытание.</p>
+                <p>Спасибо тебе за твое терпение, за твою любовь и за то, что ты есть. Я безумно люблю тебя и верю, что это только начало нашей огромной истории. С нашей первой годовщиной! 💜</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция с фотоблоками (Аналог Dome Experience / Other Programs) -->
+    <section class="memories">
+        <div class="container">
+            <h2>НАШИ МОМЕНТЫ</h2>
+            <div class="memory-grid">
+                
+                <!-- БЛОК 1 -->
+                <div class="memory-item">
+                    <!-- Замени 'static/photo1.jpg' на реальное имя твоего фото -->
+                    <img src="static/photo1.jpg" alt="Наше воспоминание 1">
+                    <h3>01. ТОТ САМЫЙ ДЕНЬ</h3>
+                    <p>Помнишь, как всё началось? Это фото напоминает мне о самых первых, трепетных моментах.</p>
+                </div>
+
+                <!-- БЛОК 2 -->
+                <div class="memory-item">
+                    <img src="static/photo2.jpg" alt="Наше воспоминание 2">
+                    <h3>02. НАШИ ВСТРЕЧИ</h3>
+                    <p>Каждая минута рядом — на вес золота. Жду не дождусь, когда мы снова сможем сделать такое фото.</p>
+                </div>
+
+                <!-- БЛОК 3 -->
+                <div class="memory-item">
+                    <img src="static/photo3.jpg" alt="Наше воспоминание 3">
+                    <h3>03. ИГРОВЫЕ НОЧИ</h3>
+                    <p>С кем еще я могу спорить о здоровье в Репо до 3 ночи? Только с тобой. 😄</p>
+                </div>
+
+                <!-- БЛОК 4 -->
+                <div class="memory-item">
+                    <img src="static/photo4.jpg" alt="Наше воспоминание 4">
+                    <h3>04. ТВОЯ ПОДДЕРЖКА</h3>
+                    <p>Спасибо, что ты рядом, даже когда ты далеко. Твоя вера в меня — мой главный мотиватор.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Финал -->
+    <footer>
+        <div class="container">
+            <p>Впереди еще целая вечность... С любовью, Дашулька💗</p>
+        </div>
+    </footer>
+
+</body>
+</html>
